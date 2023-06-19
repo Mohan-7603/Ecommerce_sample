@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login page</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://infiniteiotdevices.com/images/logo.png" rel="icon" sizes="16x16" type="image/gif" />
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+	<defs>
+		<linearGradient id="bg">
+			<stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.06)"></stop>
+			<stop offset="50%" style="stop-color:rgba(76, 190, 255, 0.6)"></stop>
+			<stop offset="100%" style="stop-color:rgba(115, 209, 72, 0.2)"></stop>
+		</linearGradient>
+		<path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+	</defs>
+	<g>
+		<use xlink:href='#wave' opacity=".3">
+			<animateTransform
+	  attributeName="transform"
+	  attributeType="XML"
+	  type="translate"
+	  dur="10s"
+	  calcMode="spline"
+	  values="270 230; -334 180; 270 230"
+	  keyTimes="0; .5; 1"
+	  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+	  repeatCount="indefinite" />
+		</use>
+		<use xlink:href='#wave' opacity=".6">
+			<animateTransform
+	  attributeName="transform"
+	  attributeType="XML"
+	  type="translate"
+	  dur="8s"
+	  calcMode="spline"
+	  values="-270 230;243 220;-270 230"
+	  keyTimes="0; .6; 1"
+	  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+	  repeatCount="indefinite" />
+		</use>
+		<use xlink:href='#wave' opacty=".9">
+			<animateTransform
+	  attributeName="transform"
+	  attributeType="XML"
+	  type="translate"
+	  dur="6s"
+	  calcMode="spline"
+	  values="0 230;-140 200;0 230"
+	  keyTimes="0; .4; 1"
+	  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+	  repeatCount="indefinite" />
+		</use>
+	</g>
+</svg>
+	<div class="box">
+        <img src="grandeurgalore-high-resolution-logo-color-on-transparent-background.png" alt="logo" height="90">
+		<form id = "loginForm">
+
+			<div class="form-control">
+				<input type="text" name="username" id = "username" required="">
+				<label>
+					<span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">e</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">n</span><span style="transition-delay:250ms">a</span><span style="transition-delay:300ms">m</span><span style="transition-delay:350ms">e</span>
+				</label>
+			</div>
+			<div class="form-control">
+				<input type="password" name="password" id = "password" required="">
+				<label>
+					<span style="transition-delay:0ms">P</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">w</span><span style="transition-delay:250ms">o</span><span style="transition-delay:300ms">r</span><span style="transition-delay:350ms">d</span>
+				</label>
+			</div>
+			<button type="submit" alt = "Login">  
+				<i>L</i>
+				<i>o</i>
+				<i>g</i>
+				<i>i</i>
+				<i>n</i>
+				</button>
+		</form>
+		<h4>Don't have an account? <a href="signUp.html">sign up</a></h4>
+	</div>
+	<script>
+
+				 // Get the login form element
+ const loginForm = document.getElementById("loginForm");
+
+// Add an event listener for the form submission
+loginForm.addEventListener("submit", function (event) {
+	event.preventDefault(); // Prevent the default form submission
+
+	// Get the username and password values
+	const username = document.getElementById("username").value;
+	const password = document.getElementById("password").value;
+
+	// Create the request body object
+	const requestBody = {
+		username: username,
+		password: password
+	};
+
+	// Send a POST request to the backend login endpoint
+	fetch("http://localhost:8085/api/v1/users/login", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(requestBody)
+	})
+	.then(response => response.text())
+	.then(data => {
+		if (data === "Login successful") {
+
+			localStorage.setItem("username", username);
+
+			// Redirect to another page
+		   document.getElementById('loginForm').reset();
+		   window.location.href = "index.html";
+
+		} else {
+			// Login failed, display error message or perform any desired action
+			alert("Invalid username or password");
+			document.getElementById('loginForm').reset();
+		}
+	})
+	.catch(error => {
+		console.error("Error:", error);
+	});
+});
+
+
+	</script>
+</body>
+</html>

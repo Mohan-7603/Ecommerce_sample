@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Page</title>
+  <style>
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+
+.container {
+  max-width:500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid rgb(255, 255, 255,0.3);
+  border-radius: 8px;
+  margin-top: 10%;
+}
+
+.product-details {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+p {
+  margin: 10px 0;
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.delivery-charge {
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+button {
+  position: relative;
+  padding: 0;
+  width: 170px;
+  height: 50px;
+  margin-left: 9rem;
+  background: transparent;
+  font-size: 17px;
+  border: 1px solid #ffffff1c;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #ffffff1c;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px;
+  height: 65px;
+  background: radial-gradient(circle at 100% -50%, #ffffff69 45%, #d4d4d44f 60%, #ffffff36 2%);
+  /* background-size: 200%; */
+  background-repeat: no-repeat;
+  filter: opacity(.3) blur(.3em);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+  height: 100%;
+  width: 100%;
+  background-color: #fbfd7b;
+  filter: blur(2em);
+  opacity: 0;
+  pointer-events: none;
+}
+
+button p {
+  display: inline-block;
+  width: 135px;
+  line-height: 65px;
+  font-size: 17px;
+  font-weight: 900;
+  color: #d6d6d6;
+  filter: blur(.02em);
+  z-index: 5;
+}
+
+
+.fil0 {
+  fill: #935E28
+}
+
+button:hover {
+  filter: blur(.05em);
+  animation: lightBox 1s ease-in-out forwards;
+}
+
+button:hover::after {
+  animation: light 1s ease-in-out forwards;
+}
+
+button:hover p {
+  animation: lightText 1s ease-in-out forwards;
+}
+
+@keyframes lightBox {
+  0% {
+    border: 1px solid #fbfd7b;
+    box-shadow: 0 0 5px 0px #fbfd7b8a, inset 0 0 10px #fbfd7b8a;
+  }
+
+  20% {
+    border: 1px solid #ffffff1c;
+    box-shadow: none;
+  }
+
+  30% {
+    border: 1px solid #fbfd7b;
+    box-shadow: 0 0 10px 0px #fbfd7b8a, inset 0 0 15px #fbfd7b8a;
+  }
+
+  38% {
+    border: 1px solid #ffffff1c;
+    box-shadow: none;
+  }
+
+  45% {
+    border: 1px solid #fbfd7b;
+    box-shadow: 0 0 15px 0px #fbfd7b8a, inset 0 0 20px #fbfd7b8a;
+  }
+
+  50% {
+    border: 1px solid #ffffff1c;
+    box-shadow: none;
+  }
+
+  53% {
+    border: 1px solid #fbfd7b;
+    box-shadow: 0 0 15px 0px #fbfd7b8a, inset 0 0 25px #fbfd7b8a;
+  }
+
+  65% {
+    border: 1px solid #ffffff1c;
+    box-shadow: none;
+  }
+
+  100% {
+    border: 1px solid #fbfd7b;
+    box-shadow: 0 0 15px 0px #fbfd7b8a, inset 0 0 25px #fbfd7b8a;
+  }
+}
+
+@keyframes light {
+  0% {
+    opacity: .7;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: .7;
+  }
+
+  38% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: .7;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  53% {
+    opacity: .7;
+  }
+
+  65% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .7;
+  }
+}
+
+@keyframes lightText {
+  0% {
+    color: #fbfd7b;
+    text-shadow: 0 0 5px #fbfd7b8a;
+  }
+
+  20% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  30% {
+    color: #fbfd7b;
+    text-shadow: 0 0 10px #fbfd7b8a;
+  }
+
+  38% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  45% {
+    color: #fbfd7b;
+    text-shadow: 0 0 15px #fbfd7b8a;
+  }
+
+  50% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  53% {
+    color: #fbfd7b;
+    text-shadow: 0 0 15px #fbfd7b8a;
+  }
+
+  65% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  100% {
+    color: #fbfd7b;
+    text-shadow: 0 0 15px #fbfd7b8a;
+  }
+}
+.order-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-details">
+          <h2>Product Details</h2>
+          <p><strong>Product Name:</strong> <span id="productName"></span></p>
+          <p><strong>Price:</strong> <span id="price"></span></p>
+          <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+          <p><strong>Color:</strong> <span id="color"></span></p>
+          <p class="delivery-charge"><strong>Delivery charge:</strong> ₹40</p>
+            <button class="order-button" value="submit">Place Your Order</button>
+        </div>
+      </div>
+
+
+  <script>
+    // Get the product details from the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+    const price = urlParams.get('price');
+    const quantity = urlParams.get('quantity');
+    const color = urlParams.get('color');
+
+    // Display the product details on the page
+    
+     document.getElementById('productName').textContent = productName;
+    document.getElementById('price').textContent = price;
+    document.getElementById('quantity').textContent = quantity;
+    document.getElementById('color').textContent = color;
+
+    var priceValue = price.replace(/[^0-9.-]+/g, "");
+
+    // Make sure the value is a valid double
+    var parsedPrice = parseFloat(priceValue);
+    
+      // Add an event listener to the "Place Your Order" button
+      const orderButton = document.querySelector('.order-button');
+      orderButton.addEventListener('click', placeOrder);
+
+      // Function to handle the "Place Your Order" button click event
+      function placeOrder() {
+        // Prepare the data object with the product details
+        const data = {
+          product_name : productName,
+          price : parsedPrice,
+          quantity,
+          color
+        };
+
+        // Make a POST request to the backend API
+        fetch('http://localhost:8085/api/v1/users/products', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(result => {
+          // Handle the response from the backend
+          window.location.href = "congrats.html";
+          // Optionally, you can show a success message or redirect to another page
+        })
+        .catch(error => {
+          // Handle any errors that occurred during the request
+          console.error(error);
+          // Optionally, you can show an error message to the user
+        });
+      }
+  </script>
+</body>
+</html>
